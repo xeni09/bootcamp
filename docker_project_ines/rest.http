@@ -1,0 +1,51 @@
+
+### test GET to app
+http://localhost:8080
+
+### test GET secret message
+
+### GET all users
+http://localhost:8080/api/get/all-users
+
+### GET by gender "Female"
+http://localhost:8080/api/usersby?gender=Female
+
+### GET by gender: Male.
+http://localhost:8080/api/usersby?gender=Male
+
+
+### PUT a new document
+PUT http://localhost:8080/api/put
+Content-Type: application/json
+
+{
+  "first_name": "John",
+  "last_name": "Doe",
+  "email": "john.doe@dummy.com",
+  "gender": "Male",
+  "address": {
+    "city": "Madrid",
+    "state": "Madrid",
+    "country": "Spain",
+    "country_code": "ES"
+  },
+  "card": {
+    "card_number": "5602253823222340",
+    "card_type": "bankcard",
+    "currency_code": "USD",
+    "balance": "$70178.29"
+  },
+  "married_status": true
+}
+
+
+# DELETE a document
+DELETE http://localhost:8080/api/delete
+Content-Type: application/json
+
+http://localhost:8080/api/users/:id?first_name=Brigg
+
+{
+  "email": "john.doe@dummy.com"
+}
+
