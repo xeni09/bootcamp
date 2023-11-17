@@ -9,11 +9,11 @@
 
 ## Dockerización de la Base de Datos MongoDB y de Node
  
-Por favor, sígase los siguientes pasos para visualizar el projecto correctamente. 
+Por favor, síganse los siguientes pasos para visualizar el projecto correctamente. 
 
 
 
-e puede levantar la imagen de mongodb con la colección de usuarios y correrá la API en node con el siguiente comando:
+Para levantar la imagen de mongodb con la colección de usuarios y correr la API en node todo en uno, se debe utilizar el siguiente comando:
 ```bash
 cd docker_project_ines/
 docker-compose up
@@ -31,7 +31,8 @@ curl --location 'http://localhost:8080/api/get/all-users' \
 Para visualizar la base de datos, se puede utilizar la aplicacion MongoDB Compass
 con la siguiente URL: mongodb://localhost:27017
 
-Para testear, se puede utilizar el navegador, o como visto en clase, la aplicación Postman. Referencia: archivo "rest.http" 
+Para testear, se puede utilizar el navegador, o como visto en clase, la aplicación Postman.
+Referencia de las diferentes URL: archivo "rest.http" 
 
 
 
