@@ -1,7 +1,4 @@
 # Bootcamp del Master en Full Stack Web Development
-
-
-
 ## Descripción de contenidos
 
 * Main folder: "docker_project_ines. Dentro se encuentra:
