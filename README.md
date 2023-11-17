@@ -21,11 +21,6 @@ docker-compose up
 
 
 
-```bash
-curl --location 'http://localhost:8080/api/get/all-users' \
---data ''
-```
-
 
 
 Para visualizar la base de datos, se puede utilizar la aplicacion MongoDB Compass

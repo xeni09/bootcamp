@@ -31,7 +31,7 @@ app.get("/secret", function (req, res, next) {
 
 // GET method route
 // Retrieve all documents in collection
-app.get("/api/get/all-users", async function (req, res) {
+app.get("/api/users", async function (req, res) {
   const client = new MongoClient(url);
   try {
     await client.connect();
@@ -47,6 +47,7 @@ app.get("/api/get/all-users", async function (req, res) {
   }
 });
 
+
 // GET method route
 // Query by a certain field(s)
 app.get("/api/usersby", async function (req, res) {
@@ -55,7 +56,15 @@ app.get("/api/usersby", async function (req, res) {
     await client.connect();
     const db = client.db(dbName);
     const col = db.collection("users");
-    const users = await col.find({ gender: req.query.gender }).toArray();
+
+    // Convertir los valores "true" y "false" a booleanos
+    for (let key in req.query) {
+      if (req.query[key].toLowerCase() === "true") req.query[key] = true;
+      else if (req.query[key].toLowerCase() === "false") req.query[key] = false;
+      else if (!isNaN(req.query[key])) req.query[key] = Number(req.query[key]);
+    }
+    console.log(req.query);
+    const users = await col.find(req.query).toArray();
     res.json(users);
   } catch (err) {
     console.log(err.stack);
@@ -64,6 +73,7 @@ app.get("/api/usersby", async function (req, res) {
     client.close();
   }
 });
+
 
 /* PUT method. Modifying the message based on certain field(s). 
 If not found, create a new document in the database. (201 Created)
@@ -77,9 +87,7 @@ app.put("/api/users/:id", async function (req, res) {
     const users = await col.updateOne(
       { id: req.params.id },
       {
-        $set: {
-          first_name: req.body.first_name,
-        },
+        $set: req.body,
       },
       { upsert: true }
     );
@@ -115,23 +123,3 @@ app.delete("/api/users/:id", async function (req, res) {
 
 app.listen(port, hostname);
 console.log(`Running on http://${hostname}:${port}`);
-
-
-
-/* GET all Females married from the Database */
-
-app.get("/api/usersby", async function (req, res) {
-  const client = new MongoClient(url);
-  try {
-    await client.connect();
-    const db = client.db(dbName);
-    const col = db.collection("users");
-    const users = await col.find({ gender: req.query.gender }).toArray();
-    res.json(users);
-  } catch (err) {
-    console.log(err.stack);
-    res.status(500).send("Error al recuperar los usuarios");
-  } finally {
-    client.close();
-  }
-});
