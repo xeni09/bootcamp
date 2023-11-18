@@ -17,6 +17,8 @@ Para levantar la imagen de mongodb con la colección de usuarios y correr la API
 ```bash
 cd docker_project_ines/
 docker-compose up
+o si puede haber containers ya funcionando que pudieran causar problemas, se puede poner
+docker-compose up --build
 ```
 
 Para visualizar la base de datos, se puede utilizar la aplicacion MongoDB Compass
