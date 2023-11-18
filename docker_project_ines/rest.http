@@ -1,21 +1,22 @@
 
 ### test GET to app
-http://localhost:8080
+GET http://localhost:8080
 
 ### test GET secret message
+GET http://localhost:8080/secret
 
 ### GET all users
-http://localhost:8080/api/get/all-users
+GET http://localhost:8080/api/users
 
 ### GET by gender "Female"
-http://localhost:8080/api/usersby?gender=Female
+GET http://localhost:8080/api/usersby?gender=Female
 
-### GET by gender: Male.
-http://localhost:8080/api/usersby?gender=Male
+### GET by gender: Male+ married_status true.
+GET http://localhost:8080/api/usersby?gender=Male&married_status=true
 
 
 ### PUT a new document
-PUT http://localhost:8080/api/put
+PUT http://localhost:8080/api/users/6557be7a457d5018dd2ab3ec
 Content-Type: application/json
 
 {
@@ -37,15 +38,42 @@ Content-Type: application/json
   },
   "married_status": true
 }
-
-
-# DELETE a document
-DELETE http://localhost:8080/api/delete
-Content-Type: application/json
-
-http://localhost:8080/api/users/:id?first_name=Brigg
+### PUT a new user by any parameter
+PUT http://localhost:8080/api/users?first_name=babydoe
+PUT http://localhost:8080/api/users?email=jobabyhn.doe@dummy.com
 
 {
-  "email": "john.doe@dummy.com"
+  "first_name": "babydoe",
+  "last_name": "Doe",
+  "email": "john.doe@dummy.com",
+  "gender": "Male",
+  "address": {
+    "city": "Madrid",
+    "state": "Madrid",
+    "country": "Spain",
+    "country_code": "ES"
+  },
+  "card": {
+    "card_number": "5602253823222340",
+    "card_type": "bankcard",
+    "currency_code": "USD",
+    "balance": "$70178.29"
+  },
+  "married_status": true
+}
+
+
+// DELETE a user by ID
+DELETE http://localhost:8080/api/users/6557be7a457d5018dd2ab3e7
+
+// DELETE a user by any parameter
+http://localhost:8080/api/users?first_name=Vanny
+
+
+//DELETE http://localhost:8080/api/users
+//with body in raw format JSON
+
+{
+  "email": "hhouldeno@pcworld.com"
 }
 
