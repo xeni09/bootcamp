@@ -19,21 +19,11 @@ cd docker_project_ines/
 docker-compose up
 ```
 
-
-
-```bash
-curl --location 'http://localhost:8080/api/get/all-users' \
---data ''
-```
-
-
-
 Para visualizar la base de datos, se puede utilizar la aplicacion MongoDB Compass
 con la siguiente URL: mongodb://localhost:27017
 
-Para testear, se puede utilizar el navegador, o como visto en clase, la aplicación Postman.
-Referencia de las diferentes URL: archivo "rest.http" 
-
+Para testear, se puede utilizar el navegador, o mejor, como visto en clase, la aplicación Postman.
+Referencia de las diferentes URL: archivo "rest.http". Ahi se han listado multiples URL para testeaer el codigo encontrado en server-ines.js
 
 
 
