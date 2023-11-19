@@ -9,7 +9,7 @@
 
 ## Dockerización de la Base de Datos MongoDB y de Node
  
-Por favor, síganse los siguientes pasos para visualizar el projecto correctamente. 
+Por favor, síganse los siguientes pasos para visualizar el proyecto correctamente. 
 
 
 
@@ -17,7 +17,9 @@ Para levantar la imagen de mongodb con la colección de usuarios y correr la API
 ```bash
 cd docker_project_ines/
 docker-compose up
-o si puede haber containers ya funcionando que pudieran causar problemas, se puede poner
+```
+o si puede haber containers ya funcionando que pudieran causar problemas, se puede utilizar para regenerar los containers de nuevo.
+```bash
 docker-compose up --build
 ```
 
@@ -25,7 +27,7 @@ Para visualizar la base de datos, se puede utilizar la aplicacion MongoDB Compas
 con la siguiente URL: mongodb://localhost:27017
 
 Para testear, se puede utilizar el navegador, o mejor, como visto en clase, la aplicación Postman.
-Referencia de las diferentes URL: archivo "rest.http". Ahi se han listado multiples URL para testeaer el codigo encontrado en server-ines.js
+Referencia de las diferentes URL: archivo "rest.http". Ahi se han listado multiples URL para testeaer el código encontrado en server-ines.js
 
 
 
